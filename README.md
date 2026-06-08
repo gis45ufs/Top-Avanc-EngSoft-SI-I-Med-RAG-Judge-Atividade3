@@ -2,7 +2,7 @@
 
 **Instituição:** Universidade Federal de Sergipe (UFS) - Pós-Graduação em Ciência da Computação  
 **Disciplina:** Tópicos Especiais em Engenharia de Software e SI I  
-**Equipe 2:** Gilson Inácio da Silva (Líder Técnico), Carlos, Ian, Caio, Gabriella.  
+**Equipe 2:** Gilson Inácio da Silva, Carlos Eduardo de Melo Pereira dos Anjos, Ian Sandes Alves, Caio Vasconcelos Silva Andrade, Gabriella de Jesus Santos.  
 **Domínio:** Médico (Datasets M1: K-QA e M2: USMLE)  
 
 🎥 **Vídeo Demonstrativo da Equipe:** [COLOQUE_O_LINK_DO_YOUTUBE_AQUI]
