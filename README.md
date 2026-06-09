@@ -1,39 +1,339 @@
-# Atividade 3: RAG e Resolução Temporal em Domínio Médico
+# 🩺 RAG-Judge: Resolução Temporal em Domínio Médico
 
-**Instituição:** Universidade Federal de Sergipe (UFS) - Pós-Graduação em Ciência da Computação  
-**Disciplina:** Tópicos Especiais em Engenharia de Software e SI I  
-**Equipe 2:** Gilson Inácio da Silva, Carlos Eduardo de Melo Pereira dos Anjos, Ian Sandes Alves, Caio Vasconcelos Silva Andrade, Gabriella de Jesus Santos.  
-**Domínio:** Médico (Datasets M1: K-QA e M2: USMLE)  
+[![Status: Concluído](https://img.shields.io/badge/Status-Concluído-brightgreen.svg)]()
+[![Tecnologia: Mistral AI](https://img.shields.io/badge/LLM-Mistral-blue.svg)]()
 
-🎥 **Vídeo Demonstrativo da Equipe:** [COLOQUE_O_LINK_DO_YOUTUBE_AQUI]
-📄 **Tutorial/Relatório em PDF:** [Abrir relatório](./Atividade_3/Relatorio_Atividade_3.pdf)
+> **Projeto Final - Atividade 3**
+> **Disciplina:** Tópicos Especiais em Engenharia de Software e SI I
+> **Instituição:** Universidade Federal de Sergipe (UFS) - Pós-Graduação em Ciência da Computação
 
-## 🎯 Objetivo
-Solucionar a "cegueira temporal" (knowledge cutoff) de Modelos de Linguagem de Grande Escala, utilizando o método de Geração Aumentada por Recuperação (RAG). Comparamos o baseline de Modelos Crús treinados até 2023 (Média 2.43) com o pipeline RAG municiado por literatura médica do Estado da Arte de 2024/2025.
+---
 
-## 🛠️ Arquitetura e Tecnologias
-* **Vetorização/Embbedding:** ChromaDB e LangChain (Local)
-* **LLM Gerador e Juiz:** Mistral API 
-* **Banco de Dados:** PostgreSQL (Tabelas lado-a-lado preservando a versão histórica)
-* **Documentação Injetada:** Relatório FDA (Novas Drogas 2025) e Diretrizes AHA (2024).
+# 👥 Equipe
 
-## 📊 Resultados e Estatística (LLM-as-a-Judge)
-Foram cruzados **16.596 pares** (nova resposta RAG vs respostas dos 4 modelos antigos).
-* **Média Base (Sem RAG):** 2.43 
-* **Média RAG (Mistral):** 3.46 (Melhoria Absoluta de +42.3%)
-* **Correlação de Spearman ($\\rho$):** 0.1377 (Comprova ruptura com o histórico de falhas)
-* **Análise de Ruído:** Foi diagnosticada falha vetorial ou ruído semântico em 17.15% dos casos, documentados no log do Juiz.
+* **Gilson Inácio da Silva**
+* **Carlos Eduardo de Melo Pereira dos Anjos**
+* **Ian Sandes Alves**
+* **Caio Vasconcelos Silva Andrade**
+* **Gabriella de Jesus Santos**
 
-## 🗂️ Estrutura de Arquivos da Entrega
-* `motor_rag.py`: Script de persistência do vetor (Chunking e ChromaDB).
-* `pipeline_rag.py`: Roteamento LLM e geração baseada em recuperação semântica.
-* `calcular_evolucao_rag.py`: Estatística matemática (Spearman) cruzando bases do banco.
-* `backup_atividade_3.sql`: Dump estruturado obrigatório refletindo antes e depois.
-* `evolucao_spearman_rag.csv`: Base analítica pura dos 16.596 pares extraídos.
+---
 
-## 🚀 Como Executar
-1. Clone o repositório localmente.
-2. Restaure o banco relacional via PGAdmin usando o `backup_atividade_3.sql`.
-3. Adicione sua própria `API_KEY` da Mistral no código `motor_rag.py`.
-4. Instale as bibliotecas (`pip install langchain chromadb psycopg2 scipy pandas`).
-5. Execute os scripts em ordem para gerar vetores e submeter ao juiz.
+# 🌐 Dashboard Analítico
+
+🔗 **Dashboard Interativo da Atividade 3:**
+https://rag-analytics-ufs-atividade3.vercel.app/
+
+---
+
+# 🔗 Atividades Relacionadas
+
+## 📘 Atividade 1
+
+🔗 Repositório GitHub:
+https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-26-1-Gilson-Inacio-Silva-Med-Ativ1
+
+## 📙 Atividade 2
+
+🔗 Repositório GitHub:
+https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-26-1-Gilson-Silva-Med-Ativ2
+
+---
+
+# 🔗 Links e Documentação
+
+## 🎥 Vídeo Demonstrativo
+
+[Acessar vídeo da apresentação](COLOQUE_AQUI_O_LINK_DO_YOUTUBE)
+
+
+## 📄 Relatório Final
+
+[Ver relatório (PDF)](./Atividade_3/Relatorio_Atividade_3.pdf)
+
+---
+
+# 🎯 Objetivo do Projeto
+
+Solucionar a **"cegueira temporal" (knowledge cutoff)** de Modelos de Linguagem utilizando a técnica de **Retrieval-Augmented Generation (RAG)**.
+
+O sistema compara o *baseline* de modelos treinados até 2023 com um pipeline RAG alimentado por literatura médica atualizada (**Diretrizes AHA 2024 e FDA 2025**), garantindo respostas clínicas baseadas em evidências recentes.
+
+---
+
+# 🧠 Arquitetura do Sistema
+
+O pipeline integra quatro componentes principais:
+
+## 1. Ingestão de Dados
+
+* PDFs médicos convertidos em embeddings vetoriais utilizando `ChromaDB`.
+
+## 2. Recuperação Semântica
+
+* Busca contextual baseada em similaridade usando `LangChain`.
+
+## 3. Geração de Resposta
+
+* Utilização da API da `Mistral AI` para síntese clínica.
+
+## 4. Juiz (LLM-as-a-Judge)
+
+* Agente avaliador baseado em *Chain-of-Thought* responsável por comparar:
+
+  * Resposta Base
+  * Resposta RAG
+  * Resposta Ouro
+
+---
+
+# 📊 Resultados Alcançados
+
+A introdução do RAG elevou significativamente a acurácia do sistema, superando limitações de modelos estáticos.
+
+| Métrica                        | Resultado    |
+| ------------------------------ | ------------ |
+| **Média Base (Sem RAG)**       | 2.43         |
+| **Média RAG (Mistral)**        | **3.46**     |
+| **Ganho Absoluto**             | **+42.3%**   |
+| **Correlação de Spearman (ρ)** | 0.1377       |
+| **Casos Avaliados**            | 16.596 pares |
+| **Ruído Semântico Detectado**  | 17.15%       |
+
+---
+
+# 🚀 Guia de Execução
+
+## 1. Pré-requisitos
+
+* Python 3.10+
+* PostgreSQL instalado
+* pgAdmin instalado
+* API Key válida da Mistral AI
+
+---
+
+## 2. Clone do Repositório
+
+```bash
+git clone https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-Med-RAG-Judge-Atividade3.git
+
+cd Top-Avanc-EngSoft-SI-I-Med-RAG-Judge-Atividade3
+```
+
+---
+
+## 3. Criação do Ambiente Virtual
+
+### Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+## 4. Instalação das Dependências
+
+```bash
+pip install langchain
+pip install langchain-community
+pip install chromadb
+pip install psycopg2-binary
+pip install scipy
+pip install pandas
+pip install openai
+```
+
+Ou utilize:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🗄️ Configuração do Banco de Dados
+
+1. Abra o **pgAdmin**.
+
+2. Crie um novo banco chamado:
+
+```text
+poc_atividade1_grupo
+```
+
+3. O usuário e senha padrão utilizados no código são:
+
+```text
+Usuário: postgres
+Senha: postgres
+```
+
+4. Clique com o botão direito no banco criado:
+
+```text
+Restore...
+```
+
+5. Selecione o arquivo:
+
+```text
+backup_atividade_3.sql
+```
+
+localizado na pasta:
+
+```text
+Atividade_3/
+```
+
+6. Execute a restauração do banco.
+
+---
+
+# 🔑 Configuração da API
+
+Abra o arquivo:
+
+```text
+Atividade_3/pipeline_rag.py
+```
+
+Localize a variável:
+
+```python
+MISTRAL_API_KEY
+```
+
+Substitua pelo valor da sua chave válida da Mistral AI.
+
+Exemplo:
+
+```python
+MISTRAL_API_KEY = "sua_chave_aqui"
+```
+
+---
+
+# ▶️ Execução do Projeto
+
+Após configurar a API Key, execute:
+
+## Pipeline Principal (RAG + Juiz)
+
+```bash
+python Atividade_3/pipeline_rag.py
+```
+
+## Análise Estatística
+
+```bash
+python Atividade_3/calcular_evolucao_rag.py
+```
+
+---
+
+# 📊 Resultados e Estatística (LLM-as-a-Judge)
+
+Foram cruzados:
+
+```text
+16.596 pares de respostas
+```
+
+comparando:
+
+* Resposta Base
+* Resposta RAG
+* Resposta Ouro
+
+## Métricas Finais
+
+| Indicador                  | Valor  |
+| -------------------------- | ------ |
+| Média Base                 | 2.43   |
+| Média RAG                  | 3.46   |
+| Evolução Absoluta          | +42.3% |
+| Correlação de Spearman (ρ) | 0.1377 |
+| Interferência Semântica    | 17.15% |
+
+---
+
+# 📂 Estrutura de Artefatos
+
+```text
+Atividade_3/
+│
+├── pdfs_medicos/
+├── Relatorio_Atividade_3.pdf
+├── backup_atividade_3.sql
+├── calcular_evolucao_rag.py
+├── evolucao_spearman_rag.csv
+├── motor_rag.py
+├── pipeline_rag.py
+├── prompts_de_sistema.md
+└── README.md
+```
+
+---
+
+# 📁 Descrição dos Arquivos
+
+| Arquivo                     | Função                               |
+| --------------------------- | ------------------------------------ |
+| `motor_rag.py`              | Persistência vetorial e ChromaDB     |
+| `pipeline_rag.py`           | Orquestração do pipeline RAG         |
+| `calcular_evolucao_rag.py`  | Estatística e Correlação de Spearman |
+| `backup_atividade_3.sql`    | Dump da base PostgreSQL              |
+| `prompts_de_sistema.md`     | Engenharia de prompts                |
+| `evolucao_spearman_rag.csv` | Base analítica dos experimentos      |
+
+---
+
+# 🔬 Tecnologias Utilizadas
+
+* Python
+* PostgreSQL
+* pgAdmin
+* LangChain
+* ChromaDB
+* Mistral AI
+* Pandas
+* SciPy
+* OpenAI API
+* Embeddings Vetoriais
+* Retrieval-Augmented Generation (RAG)
+
+---
+
+# 📈 Contribuições Científicas
+
+O projeto demonstra empiricamente que pipelines RAG podem:
+
+* Reduzir limitações temporais de LLMs
+* Melhorar acurácia clínica
+* Diminuir desatualização semântica
+* Aumentar aderência a guidelines médicas recentes
+* Possibilitar avaliação automatizada via LLM-as-a-Judge
+
+---
+
+# 📜 Licença
+
+Projeto desenvolvido exclusivamente para fins acadêmicos na disciplina:
+
+**Tópicos Especiais em Engenharia de Software e SI I**
+**Universidade Federal de Sergipe (UFS)**
+
+---
