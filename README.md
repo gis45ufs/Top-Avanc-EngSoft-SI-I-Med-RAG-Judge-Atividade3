@@ -12,10 +12,6 @@
 # 👥 Equipe
 
 * **Gilson Inácio da Silva**
-* **Carlos Eduardo de Melo Pereira dos Anjos**
-* **Ian Sandes Alves**
-* **Caio Vasconcelos Silva Andrade**
-* **Gabriella de Jesus Santos**
 
 ---
 
