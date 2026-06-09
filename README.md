@@ -46,7 +46,6 @@ https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-26-1-Gilson-Silva-Med-Ativ2
 
 [Acessar vídeo da apresentação](COLOQUE_AQUI_O_LINK_DO_YOUTUBE)
 
-
 ## 📄 Relatório Final
 
 [Ver relatório (PDF)](./Atividade_3/Relatorio_Atividade_3.pdf)
@@ -115,7 +114,7 @@ A introdução do RAG elevou significativamente a acurácia do sistema, superand
 
 ## 2. Clone do Repositório
 
-```bash
+```bash id="6k39l4"
 git clone https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-Med-RAG-Judge-Atividade3.git
 
 cd Top-Avanc-EngSoft-SI-I-Med-RAG-Judge-Atividade3
@@ -127,7 +126,7 @@ cd Top-Avanc-EngSoft-SI-I-Med-RAG-Judge-Atividade3
 
 ### Windows
 
-```bash
+```bash id="9kw9zw"
 python -m venv venv
 
 venv\Scripts\activate
@@ -135,7 +134,7 @@ venv\Scripts\activate
 
 ### Linux / macOS
 
-```bash
+```bash id="q8zt8k"
 python3 -m venv venv
 
 source venv/bin/activate
@@ -145,7 +144,7 @@ source venv/bin/activate
 
 ## 4. Instalação das Dependências
 
-```bash
+```bash id="4gdbb7"
 pip install langchain
 pip install langchain-community
 pip install chromadb
@@ -157,7 +156,7 @@ pip install openai
 
 Ou utilize:
 
-```bash
+```bash id="xh7x0x"
 pip install -r requirements.txt
 ```
 
@@ -169,32 +168,32 @@ pip install -r requirements.txt
 
 2. Crie um novo banco chamado:
 
-```text
+```text id="o5vzxp"
 poc_atividade1_grupo
 ```
 
 3. O usuário e senha padrão utilizados no código são:
 
-```text
+```text id="ls4i1v"
 Usuário: postgres
 Senha: postgres
 ```
 
 4. Clique com o botão direito no banco criado:
 
-```text
+```text id="2x0c4q"
 Restore...
 ```
 
 5. Selecione o arquivo:
 
-```text
+```text id="k4d13p"
 backup_atividade_3.sql
 ```
 
 localizado na pasta:
 
-```text
+```text id="61x31e"
 Atividade_3/
 ```
 
@@ -206,13 +205,13 @@ Atividade_3/
 
 Abra o arquivo:
 
-```text
+```text id="zkpygk"
 Atividade_3/pipeline_rag.py
 ```
 
 Localize a variável:
 
-```python
+```python id="x2b57u"
 MISTRAL_API_KEY
 ```
 
@@ -220,7 +219,7 @@ Substitua pelo valor da sua chave válida da Mistral AI.
 
 Exemplo:
 
-```python
+```python id="a8o9yw"
 MISTRAL_API_KEY = "sua_chave_aqui"
 ```
 
@@ -232,47 +231,21 @@ Após configurar a API Key, execute:
 
 ## Pipeline Principal (RAG + Juiz)
 
-```bash
+```bash id="c4utfx"
 python Atividade_3/pipeline_rag.py
 ```
 
 ## Análise Estatística
 
-```bash
+```bash id="yhn4yc"
 python Atividade_3/calcular_evolucao_rag.py
 ```
 
 ---
 
-# 📊 Resultados e Estatística (LLM-as-a-Judge)
-
-Foram cruzados:
-
-```text
-16.596 pares de respostas
-```
-
-comparando:
-
-* Resposta Base
-* Resposta RAG
-* Resposta Ouro
-
-## Métricas Finais
-
-| Indicador                  | Valor  |
-| -------------------------- | ------ |
-| Média Base                 | 2.43   |
-| Média RAG                  | 3.46   |
-| Evolução Absoluta          | +42.3% |
-| Correlação de Spearman (ρ) | 0.1377 |
-| Interferência Semântica    | 17.15% |
-
----
-
 # 📂 Estrutura de Artefatos
 
-```text
+```text id="9f4t6u"
 Atividade_3/
 │
 ├── pdfs_medicos/
