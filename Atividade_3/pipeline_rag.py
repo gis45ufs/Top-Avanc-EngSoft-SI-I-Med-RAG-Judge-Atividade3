@@ -9,7 +9,7 @@ from langchain_community.vectorstores import Chroma
 # ============================================================================
 # 1. CONFIGURAÇÕES (BANCO, API E RAG)
 # ============================================================================
-MISTRAL_API_KEY = "TEqiet2Fs00bvKfLCirE5KxQiPjrpWoJ" # A sua chave da Mistral
+MISTRAL_API_KEY = "SUA CHAVE AQUI" # A sua chave da Mistral
 
 client = OpenAI(base_url="https://api.mistral.ai/v1", api_key=MISTRAL_API_KEY)
 MODELO_API = 'mistral-small-latest'
