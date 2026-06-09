@@ -6,7 +6,7 @@
 **Domínio:** Médico (Datasets M1: K-QA e M2: USMLE)  
 
 🎥 **Vídeo Demonstrativo da Equipe:** [COLOQUE_O_LINK_DO_YOUTUBE_AQUI]
-📄 **Tutorial/Relatório em PDF:** [Disponível neste repositório]
+📄 **Tutorial/Relatório em PDF:** [Abrir relatório](./Atividade_3/Relatorio_Atividade_3.pdf)
 
 ## 🎯 Objetivo
 Solucionar a "cegueira temporal" (knowledge cutoff) de Modelos de Linguagem de Grande Escala, utilizando o método de Geração Aumentada por Recuperação (RAG). Comparamos o baseline de Modelos Crús treinados até 2023 (Média 2.43) com o pipeline RAG municiado por literatura médica do Estado da Arte de 2024/2025.
