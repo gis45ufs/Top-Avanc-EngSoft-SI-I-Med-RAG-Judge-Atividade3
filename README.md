@@ -90,7 +90,7 @@ A introdução do RAG elevou significativamente a acurácia do sistema, superand
 | ------------------------------ | ------------ |
 | **Média Base (Sem RAG)**       | 2.43         |
 | **Média RAG (Mistral)**        | **3.46**     |
-| **Ganho Absoluto**             | **+42.3%**   |
+| **Ganho Absoluto**             | **+42.2%**   |
 | **Correlação de Spearman (ρ)** | 0.1377       |
 | **Casos Avaliados**            | 16.596 pares |
 | **Ruído Semântico Detectado**  | 17.15%       |
