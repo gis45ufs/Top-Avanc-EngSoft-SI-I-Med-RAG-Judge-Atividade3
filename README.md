@@ -38,7 +38,7 @@ https://github.com/gis45ufs/Top-Avanc-EngSoft-SI-I-26-1-Gilson-Silva-Med-Ativ2
 
 # 🔗 Links e Documentação
 
-## 🎥 Vídeo Demonstrativo
+## 🎥 Vídeo defesa técnica
 
 [Acessar vídeo da defesa técnica](https://youtu.be/he2FYytgU9A)
 
